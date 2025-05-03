@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Checkout Page</title>
+  <link rel="stylesheet" href="/check.css">
+</head>
+<body>
+ <!-- HEADER -->
+  <table class="header-table">
+    <tr>
+      <td class="text t1">
+        <h3><%= user.username %> | Checkout</h3>
+      </td>
+      <td>
+        <a href="/logout">Log Out</a>
+      </td>
+    </tr>
+  </table>
+
+  <!-- DELIVERY ADDRESS -->
+  <table class="info-table">
+    <tr>
+      <td class="text t2">
+        <div class="info-content">
+          <img src="/images/pin.png" alt="Address Icon" class="info-image">
+          <div class="info-text1">
+            <h3>Delivery Address</h3><br>
+            <div class="customer-info">
+            <p class="phone-number"><strong>CUSTOMER PHONE NUMBER</strong></p>
+            <p class="main-address">CUSTOMER MAIN ADDRESS</p>
+            <p class="change-info">Click <a href="https://www.google.com">CHANGE</a> to change informations</p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+
+<!-- ORDERED PRODUCTS-->
+<table class="ordered-products">
+    <tr>
+      <td class="text t3">
+        <div class="product-header">
+          <h3>Ordered Products</h3>
+          <div class="product-labels">
+            <span class="label">Price</span>
+            <span class="label">Quantity</span>
+            <span class="label">Subtotal</span>
+          </div>
+        </div>
+  
+        <!-- Product Entry Row 1 -->
+        <div class="product-entry">
+          <div class="product-info">
+            <img src="/images/pizza.jpg" alt="Product Image" class="product-img">
+            <p class="product-name">Pizza Margherita</p>
+          </div>
+          <div class="product-values">
+            <span class="value">₱10.00</span>
+            <span class="value">2</span>
+            <span class="value">₱20.00</span>
+          </div>
+        </div>
+  
+        <!-- Product Entry Row 2 -->
+        <div class="product-entry">
+          <div class="product-info">
+            <img src="/images/pizza2.jpg" alt="Product Image" class="product-img">
+            <p class="product-name">Pizza Pepperoni</p>
+          </div>
+          <div class="product-values">
+            <span class="value">₱12.00</span>
+            <span class="value">1</span>
+            <span class="value">₱12.00</span>
+          </div>
+        </div>
+        
+        <!-- Order Total Row -->
+        <div class="order-total">
+          <span class="order-total-text">Order Total (No. of Items):</span>
+          <span class="order-total-value">₱32.00</span>
+        </div>
+      </td>
+    </tr>
+</table>
+
+<!-- PAYMENT METHOD -->
+<table class="payment-method">
+    <tr>
+      <td class="text t4">
+        <div class="payment-header">
+          <h3>Payment Method</h3>
+          <select name="payment" class="payment-select">
+            <option value="cash">Cash</option>
+            <option value="credit">Credit Card</option>
+            <option value="gcash">GCash</option>
+            <option value="hehe">Or I can pay with something else ;></option>
+          </select>
+        </div>
+        <hr class="section-divider">
+        <!-- PAYMENT SUMMARY -->
+        <div class="payment-summary">
+            <p><span class="label">Order Subtotal</span><span class="amount">₱32.00</span></p>
+            <p><span class="label">Shipping Subtotal</span><span class="amount">₱36</span></p>
+            <p class="total"><span class="label">Total Payment:</span><span class="amount">₱32.00</span></p>
+        </div>
+        <hr class="section-divider">
+          <!-- ADD BUTTON ROW -->
+        <!-- ADD BUTTON ROW -->
+        <tr>
+            <td colspan="2" class="text t4" style="text-align: right;">
+            <a href="payment-page.html">
+                <button class="boxed-button">Proceed to Payment</button>
+            </a>
+            </td>
+        </tr>
+      </td>
+    </tr>
+  </table>
+  
+  
+
+  
+  </body>
+</html>
+  
+
+  
+  
+  
