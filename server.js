@@ -41,6 +41,9 @@ const createTables = db.transaction(() => {
         price INTEGER,
         quantity INTEGER,
         image STRING,
+        size STRING,
+        specialInstructions STRING,
+        phoneNumber STRING,
         FOREIGN KEY (userid) REFERENCES users (id)
         )
         `).run()
@@ -183,8 +186,68 @@ app.post("/register", (req, res) => {
 })
 
 app.post("/checkout", (req, res) => {
-    res.render("checkout")
-})
+        // Validate user is logged in
+        if (!req.user) {
+            return res.status(401).send("You must be logged in to checkout");
+        }
+    
+        // Prepare the SQL statement with all columns
+        const putInCart = db.prepare(`
+            INSERT INTO cart (
+                userid, 
+                createdDate, 
+                item, 
+                price, 
+                quantity, 
+                image, 
+                size, 
+                specialInstructions, 
+                phoneNumber
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        `);
+    
+        // Get current date
+        const today = new Date();
+        const createdDate = today.toISOString().split('T')[0];
+    
+        // Destructure all required fields from request body
+        const { 
+            item, 
+            price, 
+            quantity, 
+            image, 
+            size, 
+            specialInstructions, 
+            phoneNumber 
+        } = req.body;
+    
+        // Validate required fields
+        if (!item || !price || !quantity || !image || !size || !phoneNumber) {
+            return res.status(400).send("Missing required fields");
+        }
+    
+        try {
+            // Execute the insert with all parameters
+            const insertCart = putInCart.run(
+                req.user.userid,        // userid from logged in user
+                createdDate,            // current date
+                item,                  // item name
+                price,                  // item price
+                quantity,               // quantity
+                image,                  // image URL
+                size,                  // pizza size
+                specialInstructions || "", // optional field
+                phoneNumber             // phone number
+            );
+    
+            console.log("Item added to cart with ID:", insertCart.lastInsertRowid);
+            res.render("checkout", { success: true });
+        } catch (err) {
+            console.error("Database error:", err);
+            res.status(500).send("Error processing your order");
+        }
+    })
+
 
 // When loggoing out cleare cookies and redirect to homepage
 app.get("/logout", (req, res) => {

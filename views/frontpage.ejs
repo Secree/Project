@@ -123,52 +123,53 @@
 
     <div class="product" id="product">
       <form id="orderForm" class="productForm" action="/checkout" method="post">
-          <img src="pepporoni pizza.png" alt="" class="productImg">
-          <div class="productDetails">
-              <h1 class="productTitle">Pepporoni Pizza</h1>
-              <h2 class="productPrice">₱150</h2>
-              
-              <div class="formGroup">
-                  <label for="quantity" class="formLabel">Quantity:</label>
-                  <input type="number" id="quantity" name="quantity" min="1" value="1" class="formInput">
-              </div>
-              
-              <div class="formGroup">
-                  <label class="formLabel">Size:</label>
-                  <div class="sizes">
-                      <label class="sizeOption">
-                          <input type="radio" name="size" value="small" checked>
-                          <span>Small</span>
-                      </label>
-                      <label class="sizeOption">
-                          <input type="radio" name="size" value="medium">
-                          <span>Medium</span>
-                      </label>
-                      <label class="sizeOption">
-                          <input type="radio" name="size" value="large">
-                          <span>Large</span>
-                      </label>
-                  </div>
-              </div>
-              
-              <div class="formGroup">
-                  <label for="specialInstructions" class="formLabel">Special Instructions:</label>
-                  <textarea id="specialInstructions" name="specialInstructions" class="formTextarea" placeholder="Any special requests?"></textarea>
-              </div>
-              
-              <div class="formGroup">
-                  <label for="customerName" class="formLabel">Your Name:</label>
-                  <input type="text" id="customerName" name="customerName" required class="formInput" placeholder="Enter your name">
-              </div>
-              
-              <div class="formGroup">
-                  <label for="customerPhone" class="formLabel">Phone Number:</label>
-                  <input type="tel" id="customerPhone" name="customerPhone" required class="formInput" placeholder="Enter your phone number">
-              </div>
-              
-              <input type="submit" value="Place Order" class="productButton">
-          </div>
-      </form>
+        <!-- Dynamic fields that will be updated by JavaScript -->
+        <img src="pepporoni pizza.png" alt="" class="productImg">
+        <div class="productDetails">
+            <h1 class="productTitle">Pepporoni Pizza</h1>
+            <h2 class="productPrice">₱150</h2>
+            
+            <!-- Hidden fields for backend data -->
+            <input type="hidden" name="item" id="formItem" value="Pepporoni Pizza">
+            <input type="hidden" name="price" id="formPrice" value="119">
+            <input type="hidden" name="image" id="formImage" value="pepporoni pizza.png">
+            
+            <div class="formGroup">
+                <label for="quantity" class="formLabel">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1" class="formInput">
+            </div>
+            
+            <div class="formGroup">
+                <label class="formLabel">Size:</label>
+                <div class="sizes">
+                    <label class="sizeOption">
+                        <input type="radio" name="size" value="small" checked>
+                        <span>Small</span>
+                    </label>
+                    <label class="sizeOption">
+                        <input type="radio" name="size" value="medium">
+                        <span>Medium</span>
+                    </label>
+                    <label class="sizeOption">
+                        <input type="radio" name="size" value="large">
+                        <span>Large</span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="formGroup">
+                <label for="specialInstructions" class="formLabel">Special Instructions:</label>
+                <textarea id="specialInstructions" name="specialInstructions" class="formTextarea" placeholder="Any special requests?"></textarea>
+            </div>
+            
+            <div class="formGroup">
+                <label for="phoneNumber" class="formLabel">Phone Number:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" required class="formInput" placeholder="Enter your phone number">
+            </div>
+            
+            <input type="submit" value="Place Order" class="productButton">
+        </div>
+    </form>
   </div>
 
     <script src="app.js"></script>
