@@ -1,0 +1,435 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+nav {
+  background-color: #111;
+  color: white;
+  padding: 20px 50px;
+}
+
+.navTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  background-color: gray;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.searchInput {
+  border: none;
+  background-color: transparent;
+}
+
+.searchInput::placeholder {
+  color: lightgray;
+}
+
+
+.navItem {
+  gap: 10px;
+  display: flex; /* Ensure navItem is a flex container */
+  align-items: center;
+  gap:30px; /* Center items vertically */
+}
+
+.cart {
+  font-size: 30px; /* Adjust this value to change the size */
+  cursor: pointer;
+}
+.user{
+  font-size: 30px; /* Adjust this value to change the size */
+  border-bottom: 2px solid green;
+  cursor: pointer;
+}
+
+
+
+
+.navBottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuItem {
+  margin-right: 50px;
+  cursor: pointer;
+  color: lightgray;
+  font-weight: 400;
+}
+
+
+.slider{
+  background: url("backgrounds.jpeg") no-repeat center / cover;
+  position: relative;
+  width: 100%;
+  height: 450px;
+  padding: 0;
+  overflow: hidden;
+  /* Removed slider-specific properties */
+  display: block; /* Ensures it's treated as a block element */
+
+}
+
+.sliderWrapper{
+  display:flex;
+  width: 500vw;
+  transition: all 1.5s ease-in-out;
+}
+
+
+.sliderItem{
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+}
+
+.sliderBg {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  margin-bottom: 3%;
+  position: absolute;
+}
+
+
+.sliderImg{
+  z-index: 1;
+  transform: scaleX(-1);
+}
+
+
+.slidertitle{
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  font-size: 60px;
+  font-weight: 900;
+  text-align: center;
+  color: white;
+  z-index: 1;
+}
+
+.pep{
+  position: absolute;
+  right: 2%;
+}
+
+.cheese{
+  position: absolute;
+  right: 5%;
+}
+
+.hawaian{
+  position: absolute;
+  right: 3%;
+}
+
+.over{
+  right: 5%;
+}
+
+.buyButton {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  font-size: 30px;
+  font-weight: 900;
+  color: white;
+  border: 1px solid gray;
+  background-color: black;
+  z-index: 1;
+  cursor: pointer;
+}
+
+
+.buyButton:hover {
+  background-color: white;
+  color: black;
+}
+
+
+.sliderPrice{
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  font-size: 60px;
+  font-weight: 300;
+  text-align: center;
+  color: white;
+  border: 1px solid gray;
+  z-index: 1;
+}
+
+
+
+.Ingredients{
+  position: absolute;
+  top: 40%;
+  left: 5%;
+  font-size: 20px;
+  font-weight: 1000;
+  text-align: center;
+  width:30%;
+  color: #556B2F;
+  border: 1px solid gray;
+  z-index: 1;
+}
+
+
+.Description{
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  font-size: 20px;
+  font-weight: 900;
+  text-align: center;
+  color: white;
+  z-index: 1;
+}
+
+
+
+/* children */
+.sliderItem:nth-child(1) .sliderBg {
+  background-color: #369e62;
+}
+.sliderItem:nth-child(2) .sliderBg {
+  background-color: rebeccapurple;
+}
+.sliderItem:nth-child(3) .sliderBg {
+  background-color: teal;
+}
+.sliderItem:nth-child(4) .sliderBg {
+  background-color: cornflowerblue;
+}
+.sliderItem:nth-child(5) .sliderBg {
+  background-color: rgb(124, 115, 80);
+}
+
+.sliderItem:nth-child(1) .sliderPrice {
+  color: #369e62;
+}
+.sliderItem:nth-child(2) .sliderPrice {
+  color: white;
+}
+.sliderItem:nth-child(3) .sliderPrice {
+  color: teal;
+}
+.sliderItem:nth-child(4) .sliderPrice {
+  color: cornflowerblue;
+}
+.sliderItem:nth-child(5) .sliderPrice {
+  color: cornsilk;
+}
+
+.sliderItem:nth-child(1) .Ingredients {
+  color: white;
+  background-color: #4e8b6a;
+  border-radius: 20px;
+}
+.sliderItem:nth-child(2) .sliderPrice {
+  color: white;
+}
+.sliderItem:nth-child(3) .sliderPrice {
+  color: teal;
+}
+.sliderItem:nth-child(4) .sliderPrice {
+  color: cornflowerblue;
+}
+.sliderItem:nth-child(5) .sliderPrice {
+  color: cornsilk;
+}
+
+
+.features{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+
+}
+.feature{
+display:flex;
+flex-direction: column;
+align-items: center;
+}
+
+.featureIcon{
+  width: 50px;
+  height: 50px;
+  text-align: center;
+}
+.FeatureTitle{
+  font-size: 20px;
+  font-weight: 600;
+  margin:10px;
+}
+.Description{
+  color:gray;
+  width:50%;
+  height:100px;
+}
+
+.product{
+  height:100vh;
+  background-color: whitesmoke;
+  position: relative;
+
+}
+
+.payment{
+  width:500px;
+  height: 500px;
+  background-color: white;
+  position: absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  margin: auto;
+  padding:10px 50px;
+  display:Flex;
+  flex-direction: column;
+  box-shadow: -2px 2px 52px -3px rgba(0,0,0,0.65);
+  -webkit-box-shadow: -2px 2px 52px -3px rgba(0,0,0,0.65);
+  -moz-box-shadow: -2px 2px 52px -3px rgba(0,0,0,0.65);
+}
+
+.payTitle{
+  font-size: 20px;
+  color:lightslategray;
+}
+
+
+.label{
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.payInput{
+  padding:10px;
+  margin: 10px 0px;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+
+.payInput::placeholder{
+color: lightslategray;
+}
+
+
+
+.productImg{
+  padding-top: 150px;
+  padding-right: 100px;
+  width:30%;
+  transform: scaleX(-1);
+}
+.productDetails{
+  position: absolute;
+  top:10%;
+  right:15%;
+  width:40%;
+}
+
+
+.productTitle{
+  font-size: 75px;
+  font-weight: 900;
+}
+
+.sizes{
+  display: flex;
+  margin-bottom: 30px;
+}
+
+
+.size{
+  padding: 5px 20px;
+  border: 1px solid black;
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+
+
+.productButton{
+  float:right;
+  padding: 10px 20px;
+  background-color: black;
+  color:white;
+  font-weight: 600;
+  cursor:pointer;
+}
+
+
+
+.productButton:hover{
+  background-color: white;
+  color:black;
+}
+
+.productForm {
+  display: flex;
+  gap: 20px;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formLabel {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.formInput {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.formTextarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  min-height: 60px;
+  resize: vertical;
+}
+
+.sizes {
+  display: flex;
+  gap: 10px;
+}
+
+.sizeOption {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.sizeOption input[type="radio"] {
+  margin: 0;
+}

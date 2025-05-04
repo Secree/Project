@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="frontpage.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- navigation bar -->
+    <nav class="shiny-pearl">
+        <div class="navTop">
+            <div class="navItem">
+                <h1><%= user.username %></h1>
+            </div>
+            <div class="navItem">
+                <div class="search">
+                    <input id="search" type="text" class="searchInput" placeholder="Search...">
+                    <label for="search"><i class='bx bx-search'></i></label>
+                </div>
+            </div>
+            
+            <div class="navItem">
+                <a href="/logout">Log Out</a>
+                <span class="cart"><i class='bx bx-cart icon'></i></span>
+                <span class="user"><i class='bx bx-user-circle icon'></i></span>
+            </div>
+        </div>
+        <div class="navBottom">
+            <% const menuItems = [
+                { name: "Pepporoni Pizza", class: "pep" },
+                { name: "Cheese Pizza", class: "cheese" },
+                { name: "Hawaian Pizza", class: "hawaian" },
+                { name: "Meat Pizza", class: "meat" },
+                { name: "Overload Cheese Pizza", class: "over" }
+            ]; %>
+            
+            <% menuItems.forEach((item, index) => { %>
+                <h3 class="menuItem" data-index="<%= index %>"><%= item.name %></h3>
+            <% }); %>
+        </div>
+    </nav>
+
+    <div class="slider">
+        <div class="sliderWrapper">
+            <% const pizzaItems = [
+                { 
+                    name: "Pepporoni Pizza", 
+                    price: "₱150", 
+                    img: "pepporoni pizza.png",
+                    class: "pep",
+                    desc: "Zesty pepperoni slices, tangy tomato sauce, melted mozzarella cheese, and a sprinkle of oregano on a golden crust."
+                },
+                { 
+                    name: "Cheese Pizza", 
+                    price: "₱150", 
+                    img: "Cheese pizza.png",
+                    class: "cheese",
+                    desc: ""
+                },
+                { 
+                    name: "Hawaian Pizza", 
+                    price: "₱150", 
+                    img: "hawaian pizza.png",
+                    class: "hawaian",
+                    desc: ""
+                },
+                { 
+                    name: "Meat Pizza", 
+                    price: "₱150", 
+                    img: "meaty pizza.png",
+                    class: "meat",
+                    desc: ""
+                },
+                { 
+                    name: "Cheezey Pizza", 
+                    price: "₱150", 
+                    img: "overload cheese pizza.png",
+                    class: "over",
+                    desc: ""
+                }
+            ]; %>
+            
+            <% pizzaItems.forEach((pizza, index) => { %>
+                <div class="sliderItem">
+                    <img src="<%= pizza.img %>" alt="" class="sliderImg">
+                    <div class="sliderBg"></div>
+                    <div class="container">
+                        <h1 class="slidertitle <%= pizza.class %>"><%= pizza.name %></h1>
+                        <h2 class="sliderPrice"><%= pizza.price %></h2>
+                        <button class="buyButton">BUY NOW</button>
+                        <% if (pizza.desc) { %>
+                            <h3 class="Ingredients">Ingredients: <%= pizza.desc %></h3>
+                        <% } %>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+
+    <!-- Rest of your HTML remains the same -->
+    <div class="features">
+      <div class="feature">
+        <img class = "featureIcon" src="bird.png" alt="">
+        <span class = "FeatureTitle "> EARLY BIRD FAMILY PACK</span>
+        <span class = "FeatureDesc">Order by 5 PM and snag two large pizzas <b>IN STORE ONLY</b></span>
+      </div>
+
+
+        <div class="feature">
+          <img class = "featureIcon" src="fast.png" alt="">
+          <span class = "FeatureTitle "> FREE SHIPPING</span>
+          <span class = "FeatureDesc">Free delivery near to you!</span>
+        </div>
+      
+      <div class="feature">
+        <img class = "featureIcon" src="pizzaa.jpg" alt="">
+        <span class = "FeatureTitle "> GUARANTEED FRESH EVERYDAY!</span>
+        <span class = "FeatureDesc">Fresh from out of the oven </span>
+      </div>
+    </div>
+
+    <div class="product" id="product">
+      <form id="orderForm" class="productForm" action="/checkout" method="post">
+          <img src="pepporoni pizza.png" alt="" class="productImg">
+          <div class="productDetails">
+              <h1 class="productTitle">Pepporoni Pizza</h1>
+              <h2 class="productPrice">₱150</h2>
+              
+              <div class="formGroup">
+                  <label for="quantity" class="formLabel">Quantity:</label>
+                  <input type="number" id="quantity" name="quantity" min="1" value="1" class="formInput">
+              </div>
+              
+              <div class="formGroup">
+                  <label class="formLabel">Size:</label>
+                  <div class="sizes">
+                      <label class="sizeOption">
+                          <input type="radio" name="size" value="small" checked>
+                          <span>Small</span>
+                      </label>
+                      <label class="sizeOption">
+                          <input type="radio" name="size" value="medium">
+                          <span>Medium</span>
+                      </label>
+                      <label class="sizeOption">
+                          <input type="radio" name="size" value="large">
+                          <span>Large</span>
+                      </label>
+                  </div>
+              </div>
+              
+              <div class="formGroup">
+                  <label for="specialInstructions" class="formLabel">Special Instructions:</label>
+                  <textarea id="specialInstructions" name="specialInstructions" class="formTextarea" placeholder="Any special requests?"></textarea>
+              </div>
+              
+              <div class="formGroup">
+                  <label for="customerName" class="formLabel">Your Name:</label>
+                  <input type="text" id="customerName" name="customerName" required class="formInput" placeholder="Enter your name">
+              </div>
+              
+              <div class="formGroup">
+                  <label for="customerPhone" class="formLabel">Phone Number:</label>
+                  <input type="tel" id="customerPhone" name="customerPhone" required class="formInput" placeholder="Enter your phone number">
+              </div>
+              
+              <input type="submit" value="Place Order" class="productButton">
+          </div>
+      </form>
+  </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

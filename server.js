@@ -70,7 +70,7 @@ app.use(function (req, res, next) {
 // Default redirect
 app.get("/", (req, res) => {
     if(req.user) {
-        return res.render("checkout")
+        return res.render("frontpage")
     } 
     res.render("login")
 
@@ -182,6 +182,11 @@ app.post("/register", (req, res) => {
 
 })
 
+app.post("/checkout", (req, res) => {
+    res.render("checkout")
+})
+
+// When loggoing out cleare cookies and redirect to homepage
 app.get("/logout", (req, res) => {
     res.clearCookie("pizzaApp")
     res.redirect("/")
